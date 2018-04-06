@@ -1,33 +1,25 @@
-import React from 'react';
+import React from "react";
 import {
-    BrowserRouter as Router,
-    Route,
-    Switch,
-    NavLink
-} from 'react-router-dom';
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  NavLink
+} from "react-router-dom";
 
-import ScrollToTopRoute from './History';
+import ScrollToTopRoute from "./History";
 
+import Home from "./components/pages/Home";
+import About from "./components/pages/About";
+import Contact from "./components/pages/Contact";
+import Projects from "./components/pages/Projects";
 
-import Home from './components/pages/Home';
-import About from './components/pages/About';
-import Contact from './components/pages/Contact';
-import Projects from './components/pages/Projects';
-
-const Routes = (props) => (
-
-
-    <Switch>
-
-        <ScrollToTopRoute path="/" exact component={Home}/>
-        <ScrollToTopRoute path="/Home" component={Home}/>
-        <ScrollToTopRoute path="/About" exact component={About}/>
-        <ScrollToTopRoute path="/Contact" exact component={Contact}/>
-        <ScrollToTopRoute path="/Projects" exact component={Projects}/>
-    </Switch>
-
-
-
+const Routes = props => (
+  <Switch>
+    <ScrollToTopRoute path="/" exact component={Home} />
+    <ScrollToTopRoute path="/Home" component={Home} />
+    <ScrollToTopRoute path="/About" exact component={About} />
+    <ScrollToTopRoute path="/Contact" exact component={Contact} />
+  </Switch>
 );
 
 export default Routes;
