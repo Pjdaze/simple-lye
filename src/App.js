@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import "./App.css";
+import Home from "./components/Home";
 
 const MainLayout = styled.div`
   height: 50vh;
@@ -20,6 +21,7 @@ class App extends React.Component {
         <h1>
           PJDUX<br />React <br /> Boilerplate
         </h1>
+        <Home />
       </MainLayout>
     );
   }

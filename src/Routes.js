@@ -11,7 +11,6 @@ import ScrollToTopRoute from "./History";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Contact from "./components/pages/Contact";
-import Projects from "./components/pages/Projects";
 
 const Routes = props => (
   <Switch>
