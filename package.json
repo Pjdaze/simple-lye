@@ -18,11 +18,14 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "aws": "yarn run build && s3cmd sync build/* s3://pjdux.com && echo '🚀  Deployed!'"
+    "aws":
+      "yarn run build && s3cmd sync build/* s3://pjdux.com && echo '🚀  Deployed!'"
   },
   "devDependencies": {
     "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.7.0",
     "prettier": "^1.11.1"
   }
 }
