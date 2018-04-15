@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import SearchOil from "../SearchOil";
 
 const HomeWrapper = styled.div`
   background: #c9d6ff;
@@ -19,7 +20,7 @@ const HomeWrapper = styled.div`
   }
 
   h1 {
-    color: #2a7ab0;
+    color: #406098;
     font-family: "Titan One", cursive;
     margin-top: 50px;
   }
@@ -27,10 +28,10 @@ const HomeWrapper = styled.div`
     color: #2a7ab0;
     transform: rotate(-60deg);
     margin-left: 100px;
-    font-size: 2em;
+    font-size: 3em;
   }
   .fa-eye-dropper {
-    color: #21294d;
+    color: #3c4a8b;
     font-size: 50px;
     margin-top: 100px;
   }
@@ -64,7 +65,7 @@ class Home extends React.Component {
     return (
       <HomeWrapper>
         <h1>Simple Lye</h1>
-
+        <SearchOil />
         <span className="far fa-smile" />
 
         <div className="add-button">
