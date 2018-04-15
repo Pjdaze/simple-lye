@@ -3,10 +3,6 @@
 
 const OilSapValues = [
 
-
-
-
-
   { Oil: "Almond Oil", LyeSapValue: 0.1367, PotassiumSapValue: 0.1925 },
   { Oil: "Aloe Vera Butter", LyeSapValue: 0.1788, PotassiumSapValue: 0.2518  },
   { Oil: "Aloe Vera Oil", LyeSapValue: 0.1421, PotassiumSapValue: 0.2001},
