@@ -1,11 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-const OilListWrapper = styled.div`
-  width: 90%;
-  max-width: 600px;
-  height: auto;
-`;
 const OilSapValues = [
   { Oil: "Almond Oil", LyeSapValue: 0.1367, PotassiumSapValue: 0.1925 },
   { Oil: "Aloe Vera Butter", LyeSapValue: 0.1788, PotassiumSapValue: 0.2518 },
@@ -140,23 +135,4 @@ const OilSapValues = [
   { Oil: "Wheat Germ Oil ", LyeSapValue: 0.1319, PotassiumSapValue: 0.1858 }
 ];
 
-class OilList extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      oils: []
-    };
-  }
-
-  render() {
-    let oils = this.state.oils;
-    return (
-      <OilListWrapper>
-        <ul>{oils.map(x => <li>{x.Oil}</li>)}</ul>
-      </OilListWrapper>
-    );
-  }
-}
-
-export default OilList;
+export default OilSapValues;

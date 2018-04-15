@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import OilList from "../OilList";
 
 const HomeWrapper = styled.div`
   height: 100vh;
@@ -14,10 +13,20 @@ const HomeWrapper = styled.div`
     align-items: center;
     cursor: pointer;
   }
-  .fa-plus-circle {
-    color: green;
-    font-size: 100px;
-    margin-top: 200px;
+
+  h1 {
+    font-family: "Molengo", cursive;
+  }
+  .fa-eye-dropper {
+    color: #21294d;
+    font-size: 50px;
+    margin-top: 100px;
+  }
+
+  .add-oil {
+    margin-top: 20px;
+    font-size: 16px;
+    font-family: "Titillium Web", cursive;
   }
 `;
 
@@ -41,11 +50,11 @@ class Home extends React.Component {
   render() {
     return (
       <HomeWrapper>
-        <div className="add-button" onSubmit={e => e}>
-          <span className="fas fa-plus-circle" />
+        <h1>Simple Lye</h1>
+        <div className="add-button">
+          <span className="fas fa-eye-dropper" />
           <span className="add-oil">Add Oil</span>
         </div>
-        <OilList />
       </HomeWrapper>
     );
   }
