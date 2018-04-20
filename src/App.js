@@ -1,8 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import "./App.css";
-import Routes from "./Routes";
-import Header from "./components/Header";
+import React from 'react';
+import styled from 'styled-components';
+import './App.css';
+
+import Routes from './Routes';
+import Header from './components/Header';
+
+import Home from './components/Home';
 
 const MainLayout = styled.div`
   height: 100vh;
@@ -18,6 +21,11 @@ class App extends React.Component {
       <MainLayout>
         <Header />
         <Routes />
+
+        <h1>
+          PJDUX<br />React <br /> Boilerplate
+        </h1>
+        <Home />
       </MainLayout>
     );
   }

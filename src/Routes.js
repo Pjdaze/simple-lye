@@ -1,14 +1,9 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  NavLink
-} from "react-router-dom";
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom';
 
-import ScrollToTopRoute from "./History";
+import ScrollToTopRoute from './History';
 
-import Home from "./components/pages/Home";
+import Home from './components/pages/Home';
 
 const Routes = props => (
   <Switch>

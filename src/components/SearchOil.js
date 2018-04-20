@@ -1,5 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
+import { OilSapValues } from '../OilData';
 const FormWrapper = styled.div`
   width: 90%;
   max-width: 600px;
@@ -14,12 +17,33 @@ const FormWrapper = styled.div`
     border: none;
   }
 `;
+
 class SearchOil extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      selectedOption: ''
+    };
+  }
+
+  handleChange = selectedOption => {
+    this.setState({ selectedOption });
+    console.log(`Selected: ${selectedOption}`);
+  };
+
   render() {
+    const { selectedOption } = this.state;
     return (
       <FormWrapper>
         <form>
-          <input type="text" placeholder="Search Oils" name="search" />
+          <Select
+            name="form-field-name"
+            value={selectedOption}
+            onChange={this.handleChange}
+            multi={true}
+            options={OilSapValues}
+          />
         </form>
       </FormWrapper>
     );
