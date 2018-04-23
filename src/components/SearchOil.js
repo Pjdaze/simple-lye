@@ -37,8 +37,14 @@ class SearchOil extends React.Component {
       .split(' ')
       .slice(-1)
       .join(' ');
-    console.log(getNumber.split('').filter(item => numbers.includes(item)));
+    const WholeNum = getNumber
+      .split('')
+      .filter(item => numbers.includes(item))
+      .join('')
+      .split(' ');
+
     console.log(getStr);
+    console.log(WholeNum);
   };
 
   render() {
