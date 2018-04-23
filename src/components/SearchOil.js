@@ -6,7 +6,6 @@ import { OilSapValues } from '../OilData';
 const FormWrapper = styled.div`
   width: 90%;
   max-width: 600px;
-
   text-align: center;
   input {
     height: 35px;
@@ -28,8 +27,18 @@ class SearchOil extends React.Component {
   }
 
   handleChange = selectedOption => {
+    let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
     this.setState({ selectedOption });
-    console.log(`Selected: ${selectedOption}`);
+    const getStr = selectedOption
+      .map(x => x.label + '' + JSON.stringify(x.value))
+      .filter(y => y[1] !== Number);
+    const getNumber = [...getStr]
+      .join(' ')
+      .split(' ')
+      .slice(-1)
+      .join(' ');
+    console.log(getNumber.split('').filter(item => numbers.includes(item)));
+    console.log(getStr);
   };
 
   render() {
@@ -51,3 +60,14 @@ class SearchOil extends React.Component {
 }
 
 export default SearchOil;
+
+//handleChange = selectedOption => {
+//  this.setState({ selectedOption });
+//  let arr = [];
+//  let numbers = ' 0 1 2 3 4 5 6 7 8 9';
+//  let getStr = `${selectedOption.map(x => JSON.stringify(x[1]).split(' '))}`;
+//  console.log('====================================');
+//  //let getNum = getStr.filter(item => Number
+//  console.log(typeof getStr);
+//  console.log('====================================');
+//};
