@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import SearchOil from '../SearchOil';
+
 import OilSapValues from '../../OilData';
 import HomeWrapper from '../../components/containers/HomeWapper';
+import SearchOil2 from '../SearchOil2';
 
 class Home extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class Home extends React.Component {
     return (
       <HomeWrapper>
         <h1>Simple Lye</h1>
-        <SearchOil />
+        <SearchOil2 />
         <span className="far fa-smile" />
 
         <div className="oil-list" />
