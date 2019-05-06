@@ -97,3 +97,5 @@ export const OilSapValues = [
   { label: 'Walnut Oil ', value: { LyeSapValue: 0.1349, PotassiumSapValue: 0.19 } },
   { label: 'Wheat Germ Oil ', value: { LyeSapValue: 0.1319, PotassiumSapValue: 0.1858 } }
 ];
+
+export default OilSapValues;

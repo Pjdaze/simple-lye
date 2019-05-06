@@ -16,6 +16,8 @@ class SearchOil2 extends React.Component {
     this.numbers = Array.from(Array(100), (_, x) => {
       return { label: x + 1, value: x + 1 };
     });
+
+    this.CalculateOil = this.CalculateOil.bind(this);
   }
 
   handleChange = selectedOptions => {
@@ -45,6 +47,19 @@ class SearchOil2 extends React.Component {
       console.log(val.value);
     };
   };
+  CalculateOil(oil, qty) {
+    const data = this.state.selectedOptions.find(obj => obj.label === oil);
+    const lyeValue = data.value.LyeSapValue * qty;
+    const lyeWaterSolution = lyeValue / 0.3;
+    const water = lyeWaterSolution - lyeValue;
+    console.log(`The Lye Needed is ${lyeValue} and the water needed is ${water}`);
+    if (!data) {
+      return 'Oil not found';
+    }
+    console.log(`The Lye Needed is ${lyeValue} and the water needed is ${water}`);
+
+    return `The Lye Needed is ${lyeValue} and the water needed is ${water}`;
+  }
 
   render() {
     const { selectedOptions, oilQuantities } = this.state;
@@ -75,7 +90,7 @@ class SearchOil2 extends React.Component {
           );
         })}
 
-        <button onSubmit={e => this.state.calculate}>Calculate</button>
+        <button onSubmit={e => this.state.CalculateOil(e)}>Calculate</button>
       </FormWrapper>
     );
   }
