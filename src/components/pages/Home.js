@@ -1,7 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
 
-import OilSapValues from '../../OilData';
 import HomeWrapper from '../../components/containers/HomeWapper';
 import SearchOil2 from '../SearchOil2';
 
@@ -18,7 +16,6 @@ class Home extends React.Component {
       isShowing: true
     });
   }
-  onSubmit(e) {}
 
   render() {
     return (

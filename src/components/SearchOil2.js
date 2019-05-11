@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import { OilSapValues } from '../OilData';
@@ -11,7 +10,8 @@ class SearchOil2 extends React.Component {
 
     this.state = {
       selectedOptions: [],
-      oilQuantities: {}
+      oilQuantities: {},
+      totals: ''
     };
     this.numbers = Array.from(Array(100), (_, x) => {
       return { label: x + 1, value: x + 1 };
@@ -58,11 +58,13 @@ class SearchOil2 extends React.Component {
     }
     console.log(`The Lye Needed is ${lyeValue} and the water needed is ${water}`);
 
-    return `The Lye Needed is ${lyeValue} and the water needed is ${water}`;
+    this.setState({
+      totals: `The Lye Needed is ${lyeValue} and the water needed is ${water}`
+    });
   }
 
   render() {
-    const { selectedOptions, oilQuantities } = this.state;
+    const { selectedOptions, oilQuantities, totals } = this.state;
     console.log('======', this.state.oilQuantities);
     return (
       <FormWrapper>
@@ -83,14 +85,17 @@ class SearchOil2 extends React.Component {
               <Select
                 name="oil-quantity"
                 value={value}
-                onChange={this.handleUpdateOilQuantity(oil.label)}
+                onChange={() => this.handleUpdateOilQuantity(oil.label)}
                 options={this.numbers}
               />
             </div>
           );
         })}
 
-        <button onSubmit={e => this.state.CalculateOil(e)}>Calculate</button>
+        <button onSubmit={() => this.CalculateOil(this.state.soapVals, this.state.quantity)}>
+          Calculate
+        </button>
+        <h1>{`so ${totals}`}</h1>
       </FormWrapper>
     );
   }

@@ -5,8 +5,6 @@ import './App.css';
 import Routes from './Routes';
 import Header from './components/Header';
 
-import Home from './components/pages/Home';
-
 const MainLayout = styled.div`
   height: 100vh;
 
