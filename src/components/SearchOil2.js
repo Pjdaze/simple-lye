@@ -1,5 +1,6 @@
+import { Button } from 'semantic-ui-react';
 import React from 'react';
-import styled from 'styled-components';
+
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import { OilSapValues } from '../OilData';
@@ -31,7 +32,8 @@ class SearchOil2 extends React.Component {
     // React Select for it to deal with.
     const soapVals = this.state.selectedOptions.find(s => s.label === oil);
     return val => {
-      console.log('val\n\r', val);
+      let sapValList = [];
+      console.log('THIS IS THE VAL\n\r', val);
       this.setState({
         oilQuantities: {
           ...this.state.oilQuantities,
@@ -42,7 +44,7 @@ class SearchOil2 extends React.Component {
         }
       });
 
-      console.log(val.value);
+      console.log('This Is The Val with the value', val.value);
     };
   };
 
@@ -76,7 +78,9 @@ class SearchOil2 extends React.Component {
           );
         })}
 
-        <button onSubmit={e => this.state.calculate}>Calculate</button>
+        <Button onClick={this.calculateValues} basic color="orange">
+          CALCULATE
+        </Button>
       </FormWrapper>
     );
   }
