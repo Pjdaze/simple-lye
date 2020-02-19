@@ -1,9 +1,7 @@
 import { Button } from 'semantic-ui-react';
 import React from 'react';
-
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
-import { OilSapValues } from '../OilData';
 import FormWrapper from './containers/FormWrapper';
 
 class SearchOil2 extends React.Component {
@@ -12,11 +10,26 @@ class SearchOil2 extends React.Component {
 
     this.state = {
       selectedOptions: [],
-      oilQuantities: {}
+      oilQuantities: {},
+      sapValueData: []
     };
     this.numbers = Array.from(Array(100), (_, x) => {
       return { label: x + 1, value: x + 1 };
     });
+  }
+
+  componentDidMount() {
+    const url = 'https://sapvalues-api.herokuapp.com/sap-values';
+
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        console.log('Here Is Our JSON Data Array: ', data);
+
+        this.setState({
+          sapValueData: [...data]
+        });
+      });
   }
 
   handleChange = selectedOptions => {
@@ -49,7 +62,7 @@ class SearchOil2 extends React.Component {
   };
 
   render() {
-    const { selectedOptions, oilQuantities } = this.state;
+    const { selectedOptions, oilQuantities, sapValueData } = this.state;
     console.log('======', this.state.oilQuantities);
     return (
       <FormWrapper>
@@ -59,7 +72,7 @@ class SearchOil2 extends React.Component {
             value={selectedOptions}
             onChange={this.handleChange}
             multi={true}
-            options={OilSapValues}
+            options={sapValueData}
           />
         </form>
         {selectedOptions.map((oil, i) => {
