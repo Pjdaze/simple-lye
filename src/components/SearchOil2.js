@@ -11,7 +11,8 @@ class SearchOil2 extends React.Component {
     this.state = {
       selectedOptions: [],
       oilQuantities: {},
-      sapValueData: []
+      sapValueData: [],
+      result: []
     };
     this.numbers = Array.from(Array(100), (_, x) => {
       return { label: x + 1, value: x + 1 };
@@ -31,6 +32,15 @@ class SearchOil2 extends React.Component {
         });
       });
   }
+
+  calculateValues = oils => {
+    this.setState({
+      sapValueData: [...this.state.sapValueData.map(x => x.value.LyeSapValue * 1000)]
+    });
+    console.log('sapValueData Here: ', [
+      ...this.state.selectedOptions.map(x => x.value.LyeSapValue * 1000)
+    ]);
+  };
 
   handleChange = selectedOptions => {
     let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
@@ -90,7 +100,7 @@ class SearchOil2 extends React.Component {
             </div>
           );
         })}
-
+        <div className="calculation">{this.state.calculateValues}</div>
         <Button onClick={this.calculateValues} basic color="orange">
           CALCULATE
         </Button>
