@@ -60,16 +60,8 @@ class SearchOil2 extends React.Component {
       console.log('This Is The Val with the QUANTITY', val.quantity);
     };
   };
-  calculateValues = oils => {
-    console.log('this is the OIL from handleUpdateQuantity()', oils);
-    // We return a function. The returned function is actually what is given to
-    // React Select for it to deal with.
-    const soapVals = this.state.sapValueData.find(s => s.label === oils.toLowerCase());
-    this.setState({
-      result: soapVals
-    });
-
-    console.log('SOAP_VALS', soapVals);
+  calculateValues = () => {
+    console.log('My Calculated VALUES', this.state.oilQuantities);
   };
   render() {
     const { selectedOptions, oilQuantities, sapValueData, result } = this.state;
@@ -99,6 +91,7 @@ class SearchOil2 extends React.Component {
                 onChange={this.handleUpdateOilQuantity(oil.label)}
                 options={this.numbers}
               />
+              <div>{result}</div>
             </div>
           );
         })}
