@@ -25,38 +25,26 @@ class SearchOil2 extends React.Component {
     fetch(url)
       .then(res => res.json())
       .then(data => {
-        console.log('Here Is Our JSON Data Array: ', data);
-
         this.setState({
           sapValueData: [...data]
         });
       });
   }
 
-  calculateValues = oils => {
-    this.setState({
-      sapValueData: [...this.state.sapValueData.map(x => x.value.LyeSapValue * 1000)]
-    });
-    console.log('sapValueData Here: ', [
-      ...this.state.selectedOptions.map(x => x.value.LyeSapValue * 1000)
-    ]);
-  };
-
   handleChange = selectedOptions => {
-    let numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
     this.setState({ selectedOptions });
-    console.log('selectedOption', selectedOptions);
+    console.log('these are The selectedOption', selectedOptions);
   };
 
   handleUpdateOilQuantity = oil => {
     // By calling this function we can pass in params to it initially
-    console.log('oil\n\r', oil);
+    console.log('this is the OIL from handleUpdateQuantity()', oil);
     // We return a function. The returned function is actually what is given to
     // React Select for it to deal with.
     const soapVals = this.state.selectedOptions.find(s => s.label === oil);
     return val => {
-      let sapValList = [];
-      console.log('THIS IS THE VAL\n\r', val);
+      //let sapValList = [];
+      console.log('THIS IS THE VAL ', val);
       this.setState({
         oilQuantities: {
           ...this.state.oilQuantities,
@@ -64,16 +52,29 @@ class SearchOil2 extends React.Component {
             quantity: val.value,
             soapVals: soapVals.value
           }
-        }
+        },
+        result: (val.value * soapVals.value.LyeSapValue) / 0.3
       });
 
       console.log('This Is The Val with the value', val.value);
+      console.log('This Is The Val with the QUANTITY', val.quantity);
     };
   };
+  calculateValues = oils => {
+    console.log('this is the OIL from handleUpdateQuantity()', oils);
+    // We return a function. The returned function is actually what is given to
+    // React Select for it to deal with.
+    const soapVals = this.state.sapValueData.find(s => s.label === oils.toLowerCase());
+    this.setState({
+      result: soapVals
+    });
 
+    console.log('SOAP_VALS', soapVals);
+  };
   render() {
-    const { selectedOptions, oilQuantities, sapValueData } = this.state;
-    console.log('======', this.state.oilQuantities);
+    const { selectedOptions, oilQuantities, sapValueData, result } = this.state;
+    console.log('this is the oilQuantities state', this.state.oilQuantities);
+
     return (
       <FormWrapper>
         <form>
@@ -87,6 +88,7 @@ class SearchOil2 extends React.Component {
         </form>
         {selectedOptions.map((oil, i) => {
           const value = oilQuantities[oil.label] && oilQuantities[oil.label].quantity;
+
           return (
             <div key={i}>
               <span>Oil Name: {oil.label}</span>
@@ -100,7 +102,9 @@ class SearchOil2 extends React.Component {
             </div>
           );
         })}
-        <div className="calculation">{this.state.calculateValues}</div>
+        <div className="calculation">
+          <h4>{result}</h4>
+        </div>
         <Button onClick={this.calculateValues} basic color="orange">
           CALCULATE
         </Button>

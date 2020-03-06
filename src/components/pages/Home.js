@@ -9,15 +9,10 @@ const Home = props => {
     <HomeWrapper>
       <h1>Simple Lye</h1>
       <SearchOil2 />
+      <br />
       <span className="far fa-smile" />
 
       <div className="oil-list" />
-
-      <Button basic color="blue">
-        <a className="ba f6 link dim ph3 pv2 mb2 dib white bg-dark-blue" href="#0">
-          Button Text
-        </a>
-      </Button>
     </HomeWrapper>
   );
 };
