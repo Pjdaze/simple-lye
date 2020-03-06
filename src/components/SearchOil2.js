@@ -52,8 +52,8 @@ class SearchOil2 extends React.Component {
             quantity: val.value,
             soapVals: soapVals.value
           }
-        },
-        result: (val.value * soapVals.value.LyeSapValue) / 0.3
+        }
+        //result: (val.value * soapVals.value.LyeSapValue) / 0.3
       });
 
       console.log('This Is The Val with the value', val.value);
@@ -61,7 +61,21 @@ class SearchOil2 extends React.Component {
     };
   };
   calculateValues = () => {
-    console.log('My Calculated VALUES', this.state.oilQuantities);
+    const ammoutOfLyeNedded = Object.entries(this.state.oilQuantities).map(
+      x => x[1].quantity * x[1].soapVals.LyeSapValue
+    );
+
+    const totalWeightSolution = ammoutOfLyeNedded / 0.3;
+    const waterNeeded = totalWeightSolution - ammoutOfLyeNedded;
+
+    this.setState({
+      result: ['Lye Nedded', ammoutOfLyeNedded, 'Water Needed', waterNeeded]
+    });
+
+    console.log(
+      'My Calculated VALUES',
+      Object.entries(this.state.oilQuantities).map(x => x[1].quantity * x[1].soapVals.LyeSapValue)
+    );
   };
   render() {
     const { selectedOptions, oilQuantities, sapValueData, result } = this.state;

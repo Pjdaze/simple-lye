@@ -2,7 +2,9 @@
   "name": "pjdux-react-boilerplate",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://pjdaze.github.io/simple-lye/",
   "dependencies": {
+    "gh-pages": "^2.2.0",
     "jshint": "^2.9.5",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
