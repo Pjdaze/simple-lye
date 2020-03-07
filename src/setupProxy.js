@@ -1,10 +1,10 @@
-const proxy = require('http-proxy-middleware');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
-module.exports = app => {
+module.exports = function(app) {
   app.use(
-    proxy('/sap-values', {
-      target: 'https://sapvalues-api.herokuapp.com/',
-      secure: false,
+    '/sap-values',
+    createProxyMiddleware({
+      target: 'http://localhost:3000',
       changeOrigin: true
     })
   );
