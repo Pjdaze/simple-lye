@@ -69,7 +69,14 @@ class SearchOil2 extends React.Component {
     const waterNeeded = totalWeightSolution - ammoutOfLyeNedded;
 
     this.setState({
-      result: ['Lye Nedded', ammoutOfLyeNedded, 'Water Needed', waterNeeded]
+      result: (
+        <div className="result-display">
+          <p>Lye Needed: {ammoutOfLyeNedded[0].toFixed(2)}</p>
+          <br />
+          <p>Water Needed: {waterNeeded.toFixed(2)}</p>
+          <p>Total Solution Weight : {totalWeightSolution.toFixed(2)}</p>
+        </div>
+      )
     });
 
     console.log(
@@ -105,7 +112,6 @@ class SearchOil2 extends React.Component {
                 onChange={this.handleUpdateOilQuantity(oil.label)}
                 options={this.numbers}
               />
-              <div>{result}</div>
             </div>
           );
         })}

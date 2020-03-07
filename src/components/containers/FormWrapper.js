@@ -11,5 +11,10 @@ const FormWrapper = styled.div`
     border-radius: 7px;
     border: none;
   }
+
+  .result-display {
+    font-size: calc(16px + 1.8vw);
+    font-family: 'Raleway', sans-serif;
+  }
 `;
 export default FormWrapper;
