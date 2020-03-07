@@ -5,7 +5,8 @@ module.exports = function(app) {
     '/sap-values',
     createProxyMiddleware({
       target: 'https://sapvalues-api.herokuapp.com',
-      changeOrigin: true
+      changeOrigin: true,
+      secure: false
     })
   );
 };
