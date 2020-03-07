@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/simple-lye/static/css/main.e54bc2f9.chunk.css",
-    "main.js": "/simple-lye/static/js/main.d28bf5ad.chunk.js",
-    "main.js.map": "/simple-lye/static/js/main.d28bf5ad.chunk.js.map",
+    "main.js": "/simple-lye/static/js/main.4811a3da.chunk.js",
+    "main.js.map": "/simple-lye/static/js/main.4811a3da.chunk.js.map",
     "runtime-main.js": "/simple-lye/static/js/runtime-main.d9ab5d3c.js",
     "runtime-main.js.map": "/simple-lye/static/js/runtime-main.d9ab5d3c.js.map",
     "static/css/2.d2d9ef4f.chunk.css": "/simple-lye/static/css/2.d2d9ef4f.chunk.css",
     "static/js/2.d60f5da3.chunk.js": "/simple-lye/static/js/2.d60f5da3.chunk.js",
     "static/js/2.d60f5da3.chunk.js.map": "/simple-lye/static/js/2.d60f5da3.chunk.js.map",
     "index.html": "/simple-lye/index.html",
-    "precache-manifest.d136f8665966a68029071e7615ed78da.js": "/simple-lye/precache-manifest.d136f8665966a68029071e7615ed78da.js",
+    "precache-manifest.1d371e384adc684a3b6af918679f0169.js": "/simple-lye/precache-manifest.1d371e384adc684a3b6af918679f0169.js",
     "service-worker.js": "/simple-lye/service-worker.js",
     "static/css/2.d2d9ef4f.chunk.css.map": "/simple-lye/static/css/2.d2d9ef4f.chunk.css.map",
     "static/css/main.e54bc2f9.chunk.css.map": "/simple-lye/static/css/main.e54bc2f9.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.d2d9ef4f.chunk.css",
     "static/js/2.d60f5da3.chunk.js",
     "static/css/main.e54bc2f9.chunk.css",
-    "static/js/main.d28bf5ad.chunk.js"
+    "static/js/main.4811a3da.chunk.js"
   ]
 }
