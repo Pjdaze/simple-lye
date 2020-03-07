@@ -6,7 +6,7 @@ Pick the oil and the ammount in ounces.
 Hit Calculate and see values
 
 Getting Started
-clone this repo for app code or go to <a href="https://pjdaze.github.io/simple-lye/">GH Repo</a>
+clone this repo for app code or go to <a href="https://github.com/Pjdaze/simple-lye/">GH Repo</a>
 
 _BONUS_
 Fell free to use the <a href="https://sapvalues-api.herokuapp.com/">Sap Values API</a>
