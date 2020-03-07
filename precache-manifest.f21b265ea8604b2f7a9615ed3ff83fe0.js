@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d4221836d5b0d4b5f0d3d6c18f4ba412",
+    "revision": "0607c3226ba6e65e46b348a0c7336529",
     "url": "/simple-lye/index.html"
   },
   {
-    "revision": "105a9c76cea9e865addb",
+    "revision": "dd5585a42af591d4027c",
     "url": "/simple-lye/static/css/2.d2d9ef4f.chunk.css"
   },
   {
-    "revision": "13422d216e0903b42965",
+    "revision": "139fe533bf7f967b3510",
     "url": "/simple-lye/static/css/main.e54bc2f9.chunk.css"
   },
   {
-    "revision": "105a9c76cea9e865addb",
-    "url": "/simple-lye/static/js/2.d60f5da3.chunk.js"
+    "revision": "dd5585a42af591d4027c",
+    "url": "/simple-lye/static/js/2.c6e66c6a.chunk.js"
   },
   {
     "revision": "eb04a113dd6ddcabf0d5e67a90cb9558",
-    "url": "/simple-lye/static/js/2.d60f5da3.chunk.js.LICENSE"
+    "url": "/simple-lye/static/js/2.c6e66c6a.chunk.js.LICENSE"
   },
   {
-    "revision": "13422d216e0903b42965",
-    "url": "/simple-lye/static/js/main.4811a3da.chunk.js"
+    "revision": "139fe533bf7f967b3510",
+    "url": "/simple-lye/static/js/main.2d10dbed.chunk.js"
   },
   {
     "revision": "8038f1349f112992cc0d",
