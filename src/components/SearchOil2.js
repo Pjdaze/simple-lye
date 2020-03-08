@@ -12,11 +12,14 @@ class SearchOil2 extends React.Component {
       selectedOptions: [],
       oilQuantities: {},
       sapValueData: [],
-      result: []
+      result: [],
+      totalPlusFat: []
     };
     this.numbers = Array.from(Array(100), (_, x) => {
       return { label: x + 1, value: x + 1 };
     });
+
+    this.lyeReductionPercentage = Array.from(Array(11), (x, nums) => nums + 1 - 1);
   }
 
   componentDidMount() {
@@ -71,10 +74,17 @@ class SearchOil2 extends React.Component {
     this.setState({
       result: (
         <div className="result-display">
-          <p>Lye Needed: {ammoutOfLyeNedded[0].toFixed(2)}</p>
+          <p>
+            Lye Needed: <br /> {ammoutOfLyeNedded[0].toFixed(2)}
+          </p>
           <br />
-          <p>Water Needed: {waterNeeded.toFixed(2)}</p>
-          <p>Total Solution Weight : {totalWeightSolution.toFixed(2)}</p>
+          <p>
+            Recommended Water Needed: <br /> {(waterNeeded - 2).toFixed(2)} to{' '}
+            {Math.round(waterNeeded + 2)}{' '}
+          </p>
+          <p>
+            Total Solution Weight: <br /> {totalWeightSolution.toFixed(2)}
+          </p>
         </div>
       )
     });
@@ -84,8 +94,28 @@ class SearchOil2 extends React.Component {
       Object.entries(this.state.oilQuantities).map(x => x[1].quantity * x[1].soapVals.LyeSapValue)
     );
   };
+  addExessFat = fatPersentage => {
+    const ammoutOfLyeNedded = Object.entries(this.state.oilQuantities).map(
+      x => x[1].quantity * x[1].soapVals.LyeSapValue
+    );
+    const newPlusFatTotal = ammoutOfLyeNedded - ammoutOfLyeNedded * fatPersentage;
+    const totalWeightSolution = newPlusFatTotal / 0.3;
+    const waterNeeded = totalWeightSolution - newPlusFatTotal;
+
+    this.setState({
+      result: (
+        <div className="result-display">
+          <p>Lye Needed: {newPlusFatTotal.toFixed(5)}</p>
+          <br />
+          <p>Water Needed: {waterNeeded.toFixed(2)}</p>
+          <p>Total Solution Weight : {totalWeightSolution.toFixed(2)}</p>
+        </div>
+      )
+    });
+  };
+
   render() {
-    const { selectedOptions, oilQuantities, sapValueData, result } = this.state;
+    const { selectedOptions, oilQuantities, sapValueData, result, totalPlusFat } = this.state;
     console.log('this is the oilQuantities state', this.state.oilQuantities);
 
     return (
@@ -112,15 +142,28 @@ class SearchOil2 extends React.Component {
                 onChange={this.handleUpdateOilQuantity(oil.label)}
                 options={this.numbers}
               />
+
+              <Select
+                name="oil-quantity"
+                value={this.lyeReductionPercentage}
+                onChange={this.handleUpdateOilQuantity(oil.label)}
+                options={this.numbers}
+              />
             </div>
           );
         })}
         <div className="calculation">
           <h4>{result}</h4>
+          <h3>{totalPlusFat}</h3>
         </div>
-        <Button onClick={this.calculateValues} basic color="orange">
-          CALCULATE
-        </Button>
+        <div>
+          <Button onClick={this.calculateValues} basic color="orange">
+            CALCULATE
+          </Button>
+          <Button onClick={this.addExessFat} basic color="blue">
+            Add Exess Fat%
+          </Button>
+        </div>
       </FormWrapper>
     );
   }
