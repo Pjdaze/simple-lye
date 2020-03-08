@@ -19,7 +19,9 @@ class SearchOil2 extends React.Component {
       return { label: x + 1, value: x + 1 };
     });
 
-    this.lyeReductionPercentage = Array.from(Array(11), (x, nums) => nums + 1 - 1);
+    this.lyeReductionPercentage = Array.from(Array(10), (_, x) => {
+      return { label: x + 1, value: x + 1 };
+    });
   }
 
   componentDidMount() {
@@ -98,6 +100,7 @@ class SearchOil2 extends React.Component {
     const ammoutOfLyeNedded = Object.entries(this.state.oilQuantities).map(
       x => x[1].quantity * x[1].soapVals.LyeSapValue
     );
+
     const newPlusFatTotal = ammoutOfLyeNedded - ammoutOfLyeNedded * fatPersentage;
     const totalWeightSolution = newPlusFatTotal / 0.3;
     const waterNeeded = totalWeightSolution - newPlusFatTotal;
@@ -144,10 +147,9 @@ class SearchOil2 extends React.Component {
               />
 
               <Select
-                name="oil-quantity"
-                value={this.lyeReductionPercentage}
-                onChange={this.handleUpdateOilQuantity(oil.label)}
-                options={this.numbers}
+                name="lye-reduction"
+                onChange={this.addExessFat}
+                options={this.lyeReductionPercentage}
               />
             </div>
           );
