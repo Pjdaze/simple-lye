@@ -73,24 +73,22 @@ class SearchOil2 extends React.Component {
     const totalWeightSolution = ammoutOfLyeNedded / 0.3;
     const waterNeeded = totalWeightSolution - ammoutOfLyeNedded;
 
-    const resultDisplay = (
-      <div className="result-display">
-        <p>
-          Lye Needed: <br /> {ammoutOfLyeNedded[0].toFixed(2)}
-        </p>
-        <br />
-        <p>
-          Recommended Water Needed: <br /> {(waterNeeded - 2).toFixed(2)} to{' '}
-          {Math.round(waterNeeded + 2)}{' '}
-        </p>
-        <p>
-          Total Solution Weight: <br /> {totalWeightSolution.toFixed(2)}
-        </p>
-      </div>
-    );
-
     this.setState({
-      result: resultDisplay
+      result: (
+        <div className="result-display">
+          <p>
+            Lye Needed: <br /> {ammoutOfLyeNedded[0].toFixed(2)}
+          </p>
+          <br />
+          <p>
+            Recommended Water Needed: <br /> {(waterNeeded - 2).toFixed(2)} to{' '}
+            {Math.round(waterNeeded + 2)}{' '}
+          </p>
+          <p>
+            Total Solution Weight: <br /> {totalWeightSolution.toFixed(2)}
+          </p>
+        </div>
+      )
     });
 
     console.log(
@@ -158,7 +156,7 @@ class SearchOil2 extends React.Component {
         })}
         <div className="calculation">
           <h4>{result}</h4>
-          <div>{totalPlusFat}</div>
+          <h3>{totalPlusFat}</h3>
         </div>
         <div>
           <Button onClick={this.calculateValues} basic color="orange">
