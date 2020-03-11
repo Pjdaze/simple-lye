@@ -13,7 +13,8 @@ class SearchOil2 extends React.Component {
       oilQuantities: {},
       sapValueData: [],
       result: [],
-      totalPlusFat: []
+      totalPlusFat: [],
+      lyeReductionOptions: []
     };
     this.numbers = Array.from(Array(100), (_, x) => {
       return { label: x + 1, value: x + 1 };
@@ -38,18 +39,22 @@ class SearchOil2 extends React.Component {
 
   handleChange = selectedOptions => {
     this.setState({ selectedOptions });
-    console.log('these are The selectedOption', selectedOptions);
+    console.log('selectedOption logged from handleChancge', selectedOptions);
+  };
+
+  handleLyeReduction = lyeReductionOptions => {
+    this.setState({ lyeReductionOptions });
   };
 
   handleUpdateOilQuantity = oil => {
     // By calling this function we can pass in params to it initially
-    console.log('this is the OIL from handleUpdateQuantity()', oil);
+    console.log('Logged from handleUpdateQuantity', oil);
     // We return a function. The returned function is actually what is given to
     // React Select for it to deal with.
     const soapVals = this.state.selectedOptions.find(s => s.label === oil);
     return val => {
       //let sapValList = [];
-      console.log('THIS IS THE VAL ', val);
+      console.log('val logged from handleUpdateQuantity ', val);
       this.setState({
         oilQuantities: {
           ...this.state.oilQuantities,
@@ -72,23 +77,24 @@ class SearchOil2 extends React.Component {
 
     const totalWeightSolution = ammoutOfLyeNedded / 0.3;
     const waterNeeded = totalWeightSolution - ammoutOfLyeNedded;
+    const resultDisplay = (
+      <div>
+        {' '}
+        <p>
+          Lye Needed: <br /> {ammoutOfLyeNedded[0].toFixed(2)}
+        </p>
+        <p>
+          Recommended Water Needed: <br /> {(waterNeeded - 2).toFixed(2)} to{' '}
+          {Math.round(waterNeeded + 2)}{' '}
+        </p>
+        <p>
+          Total Solution Weight: <br /> {totalWeightSolution.toFixed(2)}
+        </p>
+      </div>
+    );
 
     this.setState({
-      result: (
-        <div className="result-display">
-          <p>
-            Lye Needed: <br /> {ammoutOfLyeNedded[0].toFixed(2)}
-          </p>
-          <br />
-          <p>
-            Recommended Water Needed: <br /> {(waterNeeded - 2).toFixed(2)} to{' '}
-            {Math.round(waterNeeded + 2)}{' '}
-          </p>
-          <p>
-            Total Solution Weight: <br /> {totalWeightSolution.toFixed(2)}
-          </p>
-        </div>
-      )
+      result: resultDisplay
     });
 
     console.log(
@@ -101,25 +107,46 @@ class SearchOil2 extends React.Component {
       x => x[1].quantity * x[1].soapVals.LyeSapValue
     );
 
-    const newPlusFatTotal = ammoutOfLyeNedded - ammoutOfLyeNedded * fatPersentage;
+    const lyeReductionVal = this.state.lyeReductionOptions.value;
+
+    const newPlusFatTotal = ammoutOfLyeNedded - ammoutOfLyeNedded * lyeReductionVal;
     const totalWeightSolution = newPlusFatTotal / 0.3;
     const waterNeeded = totalWeightSolution - newPlusFatTotal;
+    console.log('logged from addExxesFat', this.state.lyeReductionOptions.value);
 
+    const lyeReductionDisplay = (
+      <div>
+        {' '}
+        <p>
+          Lye Needed: <br />
+          {newPlusFatTotal.toFixed(5)}
+        </p>
+        <p>
+          Water Needed: <br /> {waterNeeded.toFixed(2)}
+        </p>
+        <p>
+          Total Solution Weight : <br /> {totalWeightSolution.toFixed(2)}
+        </p>
+      </div>
+    );
     this.setState({
-      result: (
-        <div className="result-display">
-          <p>Lye Needed: {newPlusFatTotal.toFixed(5)}</p>
-          <br />
-          <p>Water Needed: {waterNeeded.toFixed(2)}</p>
-          <p>Total Solution Weight : {totalWeightSolution.toFixed(2)}</p>
-        </div>
-      )
+      result: lyeReductionDisplay,
+      lyeReductionOptions: fatPersentage
     });
   };
 
   render() {
-    const { selectedOptions, oilQuantities, sapValueData, result, totalPlusFat } = this.state;
+    const {
+      selectedOptions,
+      oilQuantities,
+      sapValueData,
+      result,
+      totalPlusFat,
+      lyeReductionOptions
+    } = this.state;
     console.log('this is the oilQuantities state', this.state.oilQuantities);
+
+    console.log('lyeReductionOptions State', lyeReductionOptions);
 
     return (
       <FormWrapper>
@@ -134,6 +161,7 @@ class SearchOil2 extends React.Component {
         </form>
         {selectedOptions.map((oil, i) => {
           const value = oilQuantities[oil.label] && oilQuantities[oil.label].quantity;
+          const lyeReductionVal = lyeReductionOptions.value;
 
           return (
             <div key={i}>
@@ -147,16 +175,17 @@ class SearchOil2 extends React.Component {
               />
 
               <Select
+                value={lyeReductionVal}
                 name="lye-reduction"
-                onChange={this.addExessFat}
+                onChange={this.handleLyeReduction}
                 options={this.lyeReductionPercentage}
               />
             </div>
           );
         })}
         <div className="calculation">
-          <h4>{result}</h4>
-          <h3>{totalPlusFat}</h3>
+          <div className="result-display">{result}</div>
+          <div className="result-display">{totalPlusFat}</div>
         </div>
         <div>
           <Button onClick={this.calculateValues} basic color="orange">
