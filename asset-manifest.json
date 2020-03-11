@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/simple-lye/static/css/main.e54bc2f9.chunk.css",
-    "main.js": "/simple-lye/static/js/main.c0650747.chunk.js",
-    "main.js.map": "/simple-lye/static/js/main.c0650747.chunk.js.map",
-    "runtime-main.js": "/simple-lye/static/js/runtime-main.d9ab5d3c.js",
-    "runtime-main.js.map": "/simple-lye/static/js/runtime-main.d9ab5d3c.js.map",
-    "static/css/2.d2d9ef4f.chunk.css": "/simple-lye/static/css/2.d2d9ef4f.chunk.css",
-    "static/js/2.240a1ed7.chunk.js": "/simple-lye/static/js/2.240a1ed7.chunk.js",
-    "static/js/2.240a1ed7.chunk.js.map": "/simple-lye/static/js/2.240a1ed7.chunk.js.map",
+    "main.js": "/simple-lye/static/js/main.1c5e61d6.chunk.js",
+    "main.js.map": "/simple-lye/static/js/main.1c5e61d6.chunk.js.map",
+    "runtime-main.js": "/simple-lye/static/js/runtime-main.8cf85b25.js",
+    "runtime-main.js.map": "/simple-lye/static/js/runtime-main.8cf85b25.js.map",
+    "static/css/2.d295898f.chunk.css": "/simple-lye/static/css/2.d295898f.chunk.css",
+    "static/js/2.f0ccd945.chunk.js": "/simple-lye/static/js/2.f0ccd945.chunk.js",
+    "static/js/2.f0ccd945.chunk.js.map": "/simple-lye/static/js/2.f0ccd945.chunk.js.map",
     "index.html": "/simple-lye/index.html",
-    "precache-manifest.1b2443fe63b01d98c39add21b7bc2b1a.js": "/simple-lye/precache-manifest.1b2443fe63b01d98c39add21b7bc2b1a.js",
+    "precache-manifest.fb73cb94a690ebe04baf4b7ecb70d7b3.js": "/simple-lye/precache-manifest.fb73cb94a690ebe04baf4b7ecb70d7b3.js",
     "service-worker.js": "/simple-lye/service-worker.js",
-    "static/css/2.d2d9ef4f.chunk.css.map": "/simple-lye/static/css/2.d2d9ef4f.chunk.css.map",
+    "static/css/2.d295898f.chunk.css.map": "/simple-lye/static/css/2.d295898f.chunk.css.map",
     "static/css/main.e54bc2f9.chunk.css.map": "/simple-lye/static/css/main.e54bc2f9.chunk.css.map",
-    "static/js/2.240a1ed7.chunk.js.LICENSE": "/simple-lye/static/js/2.240a1ed7.chunk.js.LICENSE",
+    "static/js/2.f0ccd945.chunk.js.LICENSE.txt": "/simple-lye/static/js/2.f0ccd945.chunk.js.LICENSE.txt",
     "static/media/semantic.min.css": "/simple-lye/static/media/outline-icons.ef60a4f6.woff"
   },
   "entrypoints": [
-    "static/js/runtime-main.d9ab5d3c.js",
-    "static/css/2.d2d9ef4f.chunk.css",
-    "static/js/2.240a1ed7.chunk.js",
+    "static/js/runtime-main.8cf85b25.js",
+    "static/css/2.d295898f.chunk.css",
+    "static/js/2.f0ccd945.chunk.js",
     "static/css/main.e54bc2f9.chunk.css",
-    "static/js/main.c0650747.chunk.js"
+    "static/js/main.1c5e61d6.chunk.js"
   ]
 }
