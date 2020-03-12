@@ -13,7 +13,7 @@ class SearchOil2 extends React.Component {
       oilQuantities: {},
       sapValueData: [],
       result: [],
-      totalPlusFat: [],
+
       lyeReductionOptions: []
     };
     this.numbers = Array.from(Array(100), (_, x) => {
@@ -109,7 +109,7 @@ class SearchOil2 extends React.Component {
 
     const lyeReductionVal = this.state.lyeReductionOptions.value;
 
-    const newPlusFatTotal = ammoutOfLyeNedded - ammoutOfLyeNedded * lyeReductionVal;
+    const newPlusFatTotal = ammoutOfLyeNedded - ammoutOfLyeNedded * 5;
     const totalWeightSolution = newPlusFatTotal / 0.3;
     const waterNeeded = totalWeightSolution - newPlusFatTotal;
     console.log('logged from addExxesFat', this.state.lyeReductionOptions.value);
@@ -185,7 +185,6 @@ class SearchOil2 extends React.Component {
         })}
         <div className="calculation">
           <div className="result-display">{result}</div>
-          <div className="result-display">{totalPlusFat}</div>
         </div>
         <div>
           <Button onClick={this.calculateValues} basic color="orange">
