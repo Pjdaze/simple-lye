@@ -108,8 +108,8 @@ class SearchOil2 extends React.Component {
     );
 
     const lyeReductionVal = this.state.lyeReductionOptions.value;
-
-    const newPlusFatTotal = ammoutOfLyeNedded - ammoutOfLyeNedded * 5;
+    // calculated * 0.00...
+    const newPlusFatTotal = ammoutOfLyeNedded - ammoutOfLyeNedded * 0.05;
     const totalWeightSolution = newPlusFatTotal / 0.3;
     const waterNeeded = totalWeightSolution - newPlusFatTotal;
     console.log('logged from addExxesFat', this.state.lyeReductionOptions.value);
